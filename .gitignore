@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-#
+#IDE Settings
 *.DS_Store/
 *.idea/
 *.vscode/
@@ -53,7 +53,7 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *.cover
-*.py,cover
+#*.py,cover
 .hypothesis/
 .pytest_cache/
 
