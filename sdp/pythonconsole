@@ -1,0 +1,3 @@
+from gymapp.models import User
+User.objects.all()
+me=User("Bill", "Jones", "Street","ed@.com")
