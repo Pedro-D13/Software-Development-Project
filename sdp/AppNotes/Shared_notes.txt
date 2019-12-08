@@ -1,0 +1,14 @@
+
+# After a pull request has been executed.
+1. Activate the virtual Environment 
+2. Ensure same packages are install on the project, by running from the sdp dir ' pip install -r requirements.txt '
+3. Make and run all migrations --- ' python manage.py makemigrations && python manage.py migrate '
+
+
+# Before Pushing code to repository
+1. ensure that any new packages added to the project are updated --- ' pip freeze > requirements.txt '
+2. Make and run all migrations --- ' python manage.py makemigrations && python manage.py migrate '
+3. Ensure that you're upto date with the latest branch via git pull.
+4. push changes from local to remote repo.
+
+

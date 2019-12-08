@@ -31,13 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'gymapp.apps.GymappConfig',  # gymapp Application install
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gymapp.apps.GymappConfig',
+    'phone_field',  # allows Phone handling of Phone Numbers in models
+
 ]
 
 MIDDLEWARE = [
