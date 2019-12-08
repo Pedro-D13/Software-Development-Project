@@ -14,8 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # this will route requests through our gymapp, at the moment this is our only application so a clean url will go to the app and the homepage
+    path('', include('gymapp.urls'))
 ]
