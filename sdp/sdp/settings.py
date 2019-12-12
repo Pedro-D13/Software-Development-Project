@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'h(4+l&wkh(_o-!vj9c9_rg=w_96n+(aq@z6^$^1t(3!&6(u1s5'
+SECRET_KEY = os.environ['SECRET_KEY_SDP']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'gymapp.apps.GymappConfig',  # gymapp Application install
+    'users.apps.UsersConfig',  # users application --- used to create profiles
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'phone_field',  # allows Phone handling of Phone Numbers in models
+    'psycopg2',
 
 ]
 
@@ -78,8 +80,12 @@ WSGI_APPLICATION = 'sdp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'gym_app_db',
+        'USER': 'Pedro',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 

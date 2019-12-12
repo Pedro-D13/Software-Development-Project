@@ -2,7 +2,6 @@ from django.db import models
 from phone_field import PhoneField
 # Create your models here.
 
-
 titles = [
     ('mr', 'Mr'),
     ('mrs', 'Mrs'),
@@ -40,3 +39,19 @@ class GymMember(models.Model):
     gender = models.CharField(choices=genders, max_length=1)
     membership_tier = models.CharField(
         choices=membership_tiers, default='B', max_length=1)
+
+
+class GymClassSession(models.Model):
+    ''' Gym classess, to book different activities '''
+    class_session_title = models.CharField(max_length=50)
+    class_session_description = models.TextField()
+    class_session_datetime = models.DateTimeField(null=True, blank=True)
+    class_session_images = models.ImageField(blank=True)
+
+    class Meta:
+        ''' will order the different sessions based on the time they are due to start '''
+        ordering = ('class_session_time',)
+
+    def __str__(self):
+        ''' String representation when displaying the object --- classtitle @ classdatetime'''
+        return f"{self.class_session_title} @ {self.class_session_datetime}"
