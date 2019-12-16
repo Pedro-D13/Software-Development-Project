@@ -1,4 +1,4 @@
-# Gym application 
+Gym application 
 
 ## Collaborative project, with two ambitious developers seeking to refine their skills!
 
