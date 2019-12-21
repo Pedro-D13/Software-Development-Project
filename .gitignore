@@ -8,7 +8,9 @@ __pycache__/
 *.DS_Store/
 *.vscode/ 
 
-
+#json files
+GymMember-1.json
+*GymMember-1.json
 
 # C extensions
 *.so
@@ -116,6 +118,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
 
 # Spyder project settings
 .spyderproject
