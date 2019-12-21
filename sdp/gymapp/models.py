@@ -2,7 +2,6 @@ from django.db import models
 from phone_field import PhoneField
 # Create your models here.
 
-
 titles = [
     ('mr', 'Mr'),
     ('mrs', 'Mrs'),
@@ -22,6 +21,12 @@ membership_tiers = [
     ('B', 'Bronze'),
 ]
 
+class_options = [
+    ('spin', 'Spinning'),
+    ('bxng', 'Boxing'),
+    ('LBT', 'Legs bums & tums'),
+]
+
 
 class GymMember(models.Model):
     ''' 
@@ -37,6 +42,25 @@ class GymMember(models.Model):
     mobile_number = PhoneField(
         blank=True, help_text="Contact Phone Number")  # Not required
     # Choice field or true or false
-    gender = models.CharField(choices=genders, max_length=1)
+    gender = models.CharField(choices=genders, max_length=7)
     membership_tier = models.CharField(
-        choices=membership_tiers, default='B', max_length=1)
+        choices=membership_tiers, default='B', max_length=7)
+
+
+class GymTrainer(models.Model):
+    title = models.CharField(choices=titles,
+                             max_length=4)  # Choice field
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=254)
+    gender = models.CharField(choices=genders, max_length=1)
+    description = models.TextField()
+
+
+class GymClasses(models.Model):
+    class_title = models.CharField(choices=class_options, max_length=4)
+    class_description = models.CharField(max_length=200)
+    class_date = models.DateField(auto_now=False)
+    class_time = models.TimeField(auto_now=False)
+    class_instructor = models.ForeignKey(
+        GymTrainer, on_delete=models.CASCADE, limit_choices_to={'is_staff': True})

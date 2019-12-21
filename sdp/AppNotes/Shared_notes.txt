@@ -14,3 +14,10 @@
 # Running server
 1. make sure all migrations and made and have been ran
 2. in the sdp dir, run the following : 'python manage.py runserver 0:8000' this will open project on port 8000 which is equal to localhost:8000
+
+
+# Git notes
+- how to untrack a file
+    run 'git rm --cached FILENAME'
+
+ 

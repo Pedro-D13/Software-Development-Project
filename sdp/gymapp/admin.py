@@ -1,12 +1,7 @@
 from django.contrib import admin
-from .models import GymMember
+from .models import GymMember, GymClasses, GymTrainer
 # Register your models here.
 
-
-class GymMembers(admin.StackedInline):
-    model = GymMember
-    can_delete = False
-    verbose_name = "Gym Members"
-
-
 admin.site.register(GymMember)
+admin.site.register(GymTrainer)
+admin.site.register(GymClasses)

@@ -26,8 +26,6 @@ SECRET_KEY = 'h(4+l&wkh(_o-!vj9c9_rg=w_96n+(aq@z6^$^1t(3!&6(u1s5'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -78,8 +76,12 @@ WSGI_APPLICATION = 'sdp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'gymappdb',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '5432',
     }
 }
 
