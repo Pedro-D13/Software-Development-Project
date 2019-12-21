@@ -46,6 +46,9 @@ class GymMember(models.Model):
     membership_tier = models.CharField(
         choices=membership_tiers, default='B', max_length=7)
 
+    def __str__(self):
+        return f"{self.title} {self.first_name}:{self.membership_tier}"
+
 
 class GymTrainer(models.Model):
     title = models.CharField(choices=titles,
@@ -53,8 +56,11 @@ class GymTrainer(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField(max_length=254)
-    gender = models.CharField(choices=genders, max_length=1)
+    gender = models.CharField(choices=genders, max_length=7)
     description = models.TextField()
+
+    def __str__(self):
+        return f"{self.title} {self.first_name}"
 
 
 class GymClasses(models.Model):
@@ -63,4 +69,7 @@ class GymClasses(models.Model):
     class_date = models.DateField(auto_now=False)
     class_time = models.TimeField(auto_now=False)
     class_instructor = models.ForeignKey(
-        GymTrainer, on_delete=models.CASCADE, limit_choices_to={'is_staff': True})
+        GymTrainer, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.class_title}, @{self.class_date}:{self.class_time}"
